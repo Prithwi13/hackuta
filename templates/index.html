@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Memory Video Creator</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <h1><i class="fas fa-video"></i> Memory Video Creator</h1>
+            <p>Transform your photos into beautiful memory videos with AI</p>
+        </header>
+
+        <main class="main-content">
+            <!-- Upload Section -->
+            <section class="upload-section" id="uploadSection">
+                <div class="upload-area" id="uploadArea">
+                    <div class="upload-content">
+                        <i class="fas fa-cloud-upload-alt upload-icon"></i>
+                        <h3>Upload Your Photos</h3>
+                        <p>Drag and drop your photos here or click to browse</p>
+                        <input type="file" id="photoInput" multiple accept="image/*" style="display: none;">
+                        <button class="upload-btn" onclick="document.getElementById('photoInput').click()">
+                            <i class="fas fa-plus"></i> Choose Photos
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="photo-preview" id="photoPreview" style="display: none;">
+                    <h3>Selected Photos</h3>
+                    <div class="photo-grid" id="photoGrid"></div>
+                    <div class="upload-actions">
+                        <button class="btn btn-primary" id="processBtn">
+                            <i class="fas fa-magic"></i> Generate Video
+                        </button>
+                        <button class="btn btn-secondary" id="clearBtn">
+                            <i class="fas fa-trash"></i> Clear All
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Processing Section -->
+            <section class="processing-section" id="processingSection" style="display: none;">
+                <div class="processing-content">
+                    <div class="spinner"></div>
+                    <h3>Creating Your Memory Video</h3>
+                    <p id="processingStatus">Analyzing photos...</p>
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section class="results-section" id="resultsSection" style="display: none;">
+                <div class="results-content">
+                    <h3><i class="fas fa-check-circle"></i> Video Created Successfully!</h3>
+                    <div class="video-info">
+                        <div class="context-preview">
+                            <h4>Generated Context:</h4>
+                            <p id="contextText"></p>
+                        </div>
+                        <div class="video-actions">
+                            <button class="btn btn-primary" id="downloadBtn">
+                                <i class="fas fa-download"></i> Download Video
+                            </button>
+                            <button class="btn btn-secondary" id="createAnotherBtn">
+                                <i class="fas fa-plus"></i> Create Another
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Features Section -->
+        <section class="features-section">
+            <h2>Features</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-brain"></i>
+                    <h3>AI Context Generation</h3>
+                    <p>BERT5 analyzes your photos to create meaningful context and descriptions</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-magic"></i>
+                    <h3>Smart Video Planning</h3>
+                    <p>Gemini AI suggests optimal photo sequence, transitions, and music</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-video"></i>
+                    <h3>Professional Transitions</h3>
+                    <p>Ken Burns effects, fades, and smooth transitions between photos</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-share-alt"></i>
+                    <h3>Social Media Ready</h3>
+                    <p>Export in multiple formats for Instagram, TikTok, and more</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
+
+
+
